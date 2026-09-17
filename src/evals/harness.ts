@@ -10,6 +10,7 @@ import type { TriageOutput } from './grades.ts';
 import { saveArtifact } from './artifacts.ts';
 import { AllocationSchema } from './schemas.ts';
 import { errorMessage, JsonValueSchema, toJsonValue } from '../json.ts';
+import type { Expected } from './cases.ts';
 
 export function messageText(message: FlueConversationMessage) {
   return message.parts
@@ -72,6 +73,7 @@ export function createTriageHarness(options: {
   timeoutMs?: number;
   baseUrl?: string;
   evidence?: 'live' | 'scripted-provider';
+  scenario?: { caseId: string; expected: Expected };
 }) {
   return createHarness<string | string[], TriageOutput>({
     name: 'flue-issue-triage',
@@ -154,6 +156,7 @@ export function createTriageHarness(options: {
           options.evidence ??
           (process.env.FAFO_SCRIPTED_PROVIDER === '1' ? 'scripted-provider' : 'live'),
         fixture: options.fixture,
+        scenario: options.scenario ?? null,
         fixtureVersion: 1,
         fault: options.fault ?? 'none',
         policyVersion: POLICY_VERSION,

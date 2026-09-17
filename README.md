@@ -4,6 +4,8 @@ Why [read the long AF blog post](https://neonronin.sh/blog/learn-to-write-evals)
 
 Learn evals by messing with them: inspect failures, fix bad graders, and try your own cases. The included `learn-evals` skill walks you through it.
 
+Trying Jev as a judge? Start with `npm run evals:judge -- --examples --dry-run` and the [Jev experiment guide](docs/jev.md). The worked examples show focused context, three question types, decisions composed in code, real captured results, and sampling saved application runs. Keep `TYPESAFE_API_KEY` in the ignored `.dev.vars` file.
+
 ## Get started
 
 ```sh

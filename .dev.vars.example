@@ -5,3 +5,5 @@ TRIAGE_MODEL=nvidia/nemotron-3-super-120b-a12b:free
 JUDGE_MODEL=deepseek/deepseek-v4.1-flash
 # Optional preferred OpenRouter provider for the judge; blank uses automatic routing.
 JUDGE_PROVIDER=deepseek
+# Jev-only judging needs only this key. Keep all keys in the ignored .dev.vars file.
+TYPESAFE_API_KEY=

@@ -16,6 +16,7 @@
     "evals:article": "node --import tsx scripts/run-article.ts",
     "evals:repeat": "node --import tsx scripts/run-evals.ts --repeat=5",
     "evals:judge": "node --import tsx scripts/run-judge.ts",
+    "evals:judge-run": "node --import tsx scripts/run-judge-run.ts",
     "evals:report": "vitest-evals serve artifacts/vitest-results.json",
     "report": "node --import tsx scripts/report.ts",
     "lint": "oxlint --type-aware --deny-warnings",

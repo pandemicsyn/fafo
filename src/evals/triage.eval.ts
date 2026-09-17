@@ -11,7 +11,13 @@ for (const scenario of selectCases(
 )) {
   describeEval(
     `${scenario.id} [${scenario.slice}]`,
-    { harness: createTriageHarness({ fixture: scenario.fixture, fault: scenario.fault }) },
+    {
+      harness: createTriageHarness({
+        fixture: scenario.fixture,
+        fault: scenario.fault,
+        scenario: { caseId: scenario.id, expected: scenario.expected },
+      }),
+    },
     (it) => {
       // Repetitions are independent, recorded trials. Retrying until green hides unreliability.
       for (let trial = 1; trial <= repetitions; trial++) {
