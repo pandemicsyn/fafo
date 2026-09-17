@@ -1,6 +1,6 @@
 # FAFO: Learn to Write Evals
 
-[Read the blog post](https://neonronin.sh/blog/learn-to-write-evals), or have your coding agent teach you.
+Why [read the long AF blog post](https://neonronin.sh/blog/learn-to-write-evals) when your coding agent can teach you and help you FAFO.
 
 Learn evals by messing with them: inspect failures, fix bad graders, and try your own cases. The included `learn-evals` skill walks you through it.
 
