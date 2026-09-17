@@ -1,0 +1,82 @@
+[
+  {
+    "id": "jev-validation-01",
+    "report": "In saved-search export, select a search with zero matching issues and click Export. Expected a CSV with column headers and no data rows. Actual: a download appears, but the file is completely empty.",
+    "issue": "Exporting a saved search with zero results downloads a blank file. Expected a header-only CSV.",
+    "claim": "The downloaded file has no contents.",
+    "sourceGroup": "blank-csv",
+    "slice": "faithful-paraphrase"
+  },
+  {
+    "id": "jev-validation-02",
+    "report": "In saved-search export, select a search with zero matching issues and click Export. Expected a CSV with column headers and no data rows. Actual: a download appears, but the file is completely empty.",
+    "issue": "Saved-search export downloads a completely blank file. Expected a CSV containing headers and no data rows.",
+    "claim": "Saved-search export downloads a completely blank file.",
+    "sourceGroup": "blank-csv",
+    "slice": "missing-trigger"
+  },
+  {
+    "id": "jev-validation-03",
+    "report": "In saved-search export, select a search with zero matching issues and click Export. Expected a CSV with column headers and no data rows. Actual: a download appears, but the file is completely empty.",
+    "issue": "Export a saved search with zero matching issues. Expected a header-only CSV. Actual: no file downloads.",
+    "claim": "No file downloads.",
+    "sourceGroup": "blank-csv",
+    "slice": "changed-observation"
+  },
+  {
+    "id": "jev-validation-04",
+    "report": "In saved-search export, select a search with zero matching issues and click Export. Expected a CSV with column headers and no data rows. Actual: a download appears, but the file is completely empty.",
+    "issue": "Saved-search export in Chrome 140 downloads a blank file for zero matches. Expected a header-only CSV. The serializer skips the headers when there are no rows.",
+    "claim": "The report identifies Chrome 140 as the affected browser.",
+    "sourceGroup": "blank-csv",
+    "slice": "invented-environment-and-cause"
+  },
+  {
+    "id": "jev-validation-05",
+    "report": "Notifications: disable email alerts but keep in-app alerts enabled, then get mentioned on an issue. Expected only an in-app alert. Actual: both an email and an in-app alert arrive.",
+    "issue": "With email alerts off and in-app alerts on, an issue mention sends both kinds of alert. Expected the in-app alert only.",
+    "claim": "With email alerts off and in-app alerts on, an issue mention sends both kinds of alert.",
+    "sourceGroup": "alert-channels",
+    "slice": "preserved-channel-policy"
+  },
+  {
+    "id": "jev-validation-06",
+    "report": "Notifications: disable email alerts but keep in-app alerts enabled, then get mentioned on an issue. Expected only an in-app alert. Actual: both an email and an in-app alert arrive.",
+    "issue": "With email alerts off and in-app alerts on, an issue mention sends both kinds of alert. Expected neither an email nor an in-app alert.",
+    "claim": "Expected neither an email nor an in-app alert.",
+    "sourceGroup": "alert-channels",
+    "slice": "changed-expectation"
+  },
+  {
+    "id": "jev-validation-07",
+    "report": "Issue-list search: type two words separated by a double space and submit. Expected the same matches as with one space. Actual: no matches. I have confirmed this in Firefox 143 only; I have not tested other browsers.",
+    "issue": "In Firefox 143, submitting an issue search with two spaces between words returns no matches. Expected the same matches as a single-space query. Other browsers are untested.",
+    "claim": "Other browsers are untested.",
+    "sourceGroup": "double-space",
+    "slice": "supported-version"
+  },
+  {
+    "id": "jev-validation-08",
+    "report": "Issue-list search: type two words separated by a double space and submit. Expected the same matches as with one space. Actual: no matches. I have confirmed this in Firefox 143 only; I have not tested other browsers.",
+    "issue": "In Firefox 143, submitting an issue search with two spaces between words returns no matches. Expected the same matches as a single-space query. Other browsers are unaffected.",
+    "claim": "Other browsers are unaffected.",
+    "sourceGroup": "double-space",
+    "slice": "untested-as-unaffected"
+  },
+  {
+    "id": "jev-validation-09",
+    "report": "Saved-search export: change the selected columns to Title and Status, then export a search with three matching issues. Expected those two columns and three data rows. Actual: the CSV has all default columns and three data rows.",
+    "issue": "For a saved search with three matches, export after selecting Title and Status as columns. The CSV retains all default columns but correctly includes three data rows; expected only the selected two columns.",
+    "claim": "The CSV retains all default columns but correctly includes three data rows; expected only the selected two columns.",
+    "sourceGroup": "export-columns",
+    "slice": "faithful-detail"
+  },
+  {
+    "id": "jev-validation-10",
+    "report": "Saved-search export: change the selected columns to Title and Status, then export a search with three matching issues. Expected those two columns and three data rows. Actual: the CSV has all default columns and three data rows.",
+    "issue": "Saved-search CSV export ignores a Title/Status column selection for a three-result search: all default columns appear. Row count is correctly three. Expected just Title and Status.",
+    "claim": "Row count is correctly three.",
+    "sourceGroup": "export-columns",
+    "slice": "terse-valid-paraphrase"
+  }
+]

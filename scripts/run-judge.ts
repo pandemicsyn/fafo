@@ -1,105 +1,53 @@
-import * as v from 'valibot';
-import { parseJson, errorMessage } from '../src/json.ts';
-import { randomUUID } from 'node:crypto';
-import { readFile } from 'node:fs/promises';
-import { DEFAULT_JUDGE_MODEL, loadEnv, requireKey, modelId } from '../src/config.ts';
-import { calibrationExamples } from '../src/evals/recordings.ts';
+import { loadEnv } from '../src/config.ts';
+import { errorMessage } from '../src/json.ts';
 import {
-  assessPair,
-  openRouterJudgeHarness,
-  RUBRIC_VERSION,
-  judgeProviderRouting,
-  type JudgeResponseMetadata,
-} from '../src/evals/judge.ts';
-import { saveArtifact } from '../src/evals/artifacts.ts';
-loadEnv();
-// LESSON 7: these inputs are fixed so disagreements isolate the judge, not a changing app output.
-// Supply your labels with --labels=.learn-evals/labels.json after doing the unlabeled exercise.
-// Completion means reviewing evidence and false accepts/rejects; a zero exit only means this
-// command completed without an execution error, not that the judge agreed or is ready for CI.
-try {
-  requireKey();
-  const args = process.argv.slice(2);
-  const split = args.includes('--validation') ? 'validation' : 'calibration';
-  const repetitions = Number(args.find((a) => a.startsWith('--repeat='))?.slice(9) ?? 1);
-  if (!Number.isInteger(repetitions) || repetitions < 1 || repetitions > 5)
-    throw new Error('--repeat must be 1–5.');
-  if (
-    args.some(
-      (a) => a !== '--validation' && !a.startsWith('--repeat=') && !a.startsWith('--labels='),
-    )
+  loadLabels,
+  loadPairs,
+  parseOptions,
+  runExperiment,
+} from '../src/evals/judge-experiment.ts';
+
+const args = process.argv.slice(2);
+// Preserve the original lesson-7 command, artifacts and reference-label behavior.
+if (args.includes('--examples')) {
+  await import('./run-jev-examples.ts');
+} else if (
+  !args.some(
+    (arg) =>
+      /^--(judge|compare|dataset|pairs|accept|reject|label-source)=/.test(arg) ||
+      ['--batching', '--dry-run', '--help'].includes(arg),
   )
-    throw new Error('Use --validation, --repeat=1..5, and/or --labels=path.json.');
-  const labelPath = args.find((a) => a.startsWith('--labels='))?.slice(9);
-  const labels: Record<string, 'pass' | 'fail'> = labelPath
-    ? v.parse(
-        v.record(v.string(), v.picklist(['pass', 'fail'])),
-        parseJson(await readFile(labelPath, 'utf8')),
-      )
-    : {};
-  const examples = calibrationExamples.filter((e) => e.split === split);
-  if (labelPath && examples.some((e) => !['pass', 'fail'].includes(labels[e.id])))
-    throw new Error('Labels file needs a pass/fail label for every example in this split.');
-  console.log(
-    `${examples.length * repetitions} judge calls on fixed synthetic outputs, model ${modelId(process.env.JUDGE_MODEL?.trim() || DEFAULT_JUDGE_MODEL)}. No application calls. Preferred provider: ${process.env.JUDGE_PROVIDER?.trim() || 'automatic'}. Labels: ${labelPath ? 'learner-supplied' : 'reference author labels'}.`,
-  );
-  const results = [];
-  for (const example of examples)
-    for (let trial = 1; trial <= repetitions; trial++) {
-      let metadata: JudgeResponseMetadata | null = null;
-      const human = labels[example.id] ?? example.human;
-      try {
-        const verdict = await assessPair(
-          { report: example.report, issue: example.issue },
-          openRouterJudgeHarness({
-            onResponse: (value) => {
-              metadata = value;
-            },
-          }),
-        );
-        results.push({
-          id: example.id,
-          trial,
-          human,
-          status: 'completed' as const,
-          ...verdict,
-          metadata,
-        });
-      } catch (error) {
-        results.push({
-          id: example.id,
-          trial,
-          human,
-          status: 'error' as const,
-          error: errorMessage(error),
-          metadata,
-        });
-      }
-    }
-  const completed = results.filter((r) => r.status === 'completed');
-  const summary = {
-    planned: examples.length * repetitions,
-    completed: completed.length,
-    errors: results.length - completed.length,
-    agreements: completed.filter((r) => r.verdict === r.human).length,
-    falseAccepts: completed.filter((r) => r.human === 'fail' && r.verdict === 'pass').length,
-    falseRejects: completed.filter((r) => r.human === 'pass' && r.verdict === 'fail').length,
-  };
-  const file = await saveArtifact(`judge-${randomUUID()}`, {
-    evidence: 'live-judge-on-synthetic-outputs',
-    rubricVersion: RUBRIC_VERSION,
-    providerRouting: judgeProviderRouting(),
-    model: modelId(process.env.JUDGE_MODEL?.trim() || DEFAULT_JUDGE_MODEL),
-    split,
-    summary,
-    results,
-  });
-  console.table(summary);
-  console.log(
-    `Agreement denominator: ${completed.length} completed grades. Errors remain visible. Evidence: ${file}`,
-  );
-  if (summary.errors) process.exitCode = 1;
-} catch (error) {
-  console.error(errorMessage(error));
-  process.exitCode = 1;
+) {
+  await import('./run-judge-legacy.ts');
+} else if (args.includes('--help')) {
+  console.log(`Jev experiments (no app server required):
+  --examples [--dry-run] [--repeat=1..3]
+  --examples --run=run-ID [--sample=0.05 --seed=blog-demo]
+  --judge=jev|jev-single|deepseek OR --compare=deepseek,jev-single,jev
+  --dataset=teaching|jev [--validation] OR --pairs=path.json
+  --labels=path.json --label-source=human|provisional --repeat=1..5
+  --batching --accept=0.1 --reject=0.9 --dry-run
+No new options: original lesson-7 runner. Jev dataset has no supplied labels.
+Key: TYPESAFE_API_KEY in .dev.vars. --dry-run needs no key.
+Thresholds are illustrative; review human-labeled results before trusting automatic decisions.`);
+} else {
+  loadEnv();
+  try {
+    const options = parseOptions(args);
+    const { pairs, referenceLabels, source } = await loadPairs(options);
+    const labels = await loadLabels(options.labels, pairs, referenceLabels);
+    const result = await runExperiment(pairs, labels, options, {
+      kind: 'synthetic-pairs',
+      source,
+      labels: options.labels
+        ? options.labelSource
+        : Object.keys(referenceLabels).length
+          ? 'reference author labels; teaching data'
+          : 'unlabeled',
+    });
+    if (result?.errors) process.exitCode = 1;
+  } catch (error) {
+    console.error(errorMessage(error));
+    process.exitCode = 1;
+  }
 }
