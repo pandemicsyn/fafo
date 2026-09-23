@@ -6,21 +6,81 @@
     "proposed_issues": "A: Coupon duplicates checkout total; B: Dashboard API consistently crashes; C: Judge is broken; D: Refund completed incorrectly; E: Authentication rejects valid payment; F: CI-only timeout; G: Duplicate of password reset; H: Assertion failure in src/triage.ts; I: Cross-tenant issue access; J: Empty-state copy typo; K: Rate limiter is broken; L: Worker retries always fail; M: Migration duplicate key; N: Search indexing broken; O: Customer email in title; P: Two coupon total issues."
   },
   "items": [
-    {"id":"A","signal":"coupon checkout total doubles with reproducible evidence","candidate":"Coupon duplicates checkout total"},
-    {"id":"B","signal":"dashboard screenshot lacks trace or reproduction","candidate":"Dashboard API consistently crashes"},
-    {"id":"C","signal":"intentional failing exercise is expected","candidate":"Judge is broken"},
-    {"id":"D","signal":"refund was requested but not issued","candidate":"Refund completed incorrectly"},
-    {"id":"E","signal":"payment gateway decline 402 routed to authentication","candidate":"Authentication rejects valid payment"},
-    {"id":"F","signal":"three timestamped CI-only timeouts","candidate":"CI-only timeout"},
-    {"id":"G","signal":"account lockout differs from password reset","candidate":"Duplicate of password reset"},
-    {"id":"H","signal":"path and assertion supplied, actual/expected absent","candidate":"Assertion failure in src/triage.ts"},
-    {"id":"I","signal":"cross-tenant access with redacted trace","candidate":"Cross-tenant issue access"},
-    {"id":"J","signal":"screenshot supports empty-state copy typo","candidate":"Empty-state copy typo"},
-    {"id":"K","signal":"429 after burst without policy threshold","candidate":"Rate limiter is broken"},
-    {"id":"L","signal":"worker retry succeeds on second retry","candidate":"Worker retries always fail"},
-    {"id":"M","signal":"migration duplicate-key error; rollback omitted","candidate":"Migration duplicate key"},
-    {"id":"N","signal":"search lag timestamps but no indexing SLA","candidate":"Search indexing broken"},
-    {"id":"O","signal":"public title contains customer email","candidate":"Customer email in title"},
-    {"id":"P","signal":"duplicate coupon reports same stack and build","candidate":"Two coupon total issues"}
+    {
+      "id": "A",
+      "signal": "coupon checkout total doubles with reproducible evidence",
+      "candidate": "Coupon duplicates checkout total"
+    },
+    {
+      "id": "B",
+      "signal": "dashboard screenshot lacks trace or reproduction",
+      "candidate": "Dashboard API consistently crashes"
+    },
+    {
+      "id": "C",
+      "signal": "intentional failing exercise is expected",
+      "candidate": "Judge is broken"
+    },
+    {
+      "id": "D",
+      "signal": "refund was requested but not issued",
+      "candidate": "Refund completed incorrectly"
+    },
+    {
+      "id": "E",
+      "signal": "payment gateway decline 402 routed to authentication",
+      "candidate": "Authentication rejects valid payment"
+    },
+    { "id": "F", "signal": "three timestamped CI-only timeouts", "candidate": "CI-only timeout" },
+    {
+      "id": "G",
+      "signal": "account lockout differs from password reset",
+      "candidate": "Duplicate of password reset"
+    },
+    {
+      "id": "H",
+      "signal": "path and assertion supplied, actual/expected absent",
+      "candidate": "Assertion failure in src/triage.ts"
+    },
+    {
+      "id": "I",
+      "signal": "cross-tenant access with redacted trace",
+      "candidate": "Cross-tenant issue access"
+    },
+    {
+      "id": "J",
+      "signal": "screenshot supports empty-state copy typo",
+      "candidate": "Empty-state copy typo"
+    },
+    {
+      "id": "K",
+      "signal": "429 after burst without policy threshold",
+      "candidate": "Rate limiter is broken"
+    },
+    {
+      "id": "L",
+      "signal": "worker retry succeeds on second retry",
+      "candidate": "Worker retries always fail"
+    },
+    {
+      "id": "M",
+      "signal": "migration duplicate-key error; rollback omitted",
+      "candidate": "Migration duplicate key"
+    },
+    {
+      "id": "N",
+      "signal": "search lag timestamps but no indexing SLA",
+      "candidate": "Search indexing broken"
+    },
+    {
+      "id": "O",
+      "signal": "public title contains customer email",
+      "candidate": "Customer email in title"
+    },
+    {
+      "id": "P",
+      "signal": "duplicate coupon reports same stack and build",
+      "candidate": "Two coupon total issues"
+    }
   ]
 }
