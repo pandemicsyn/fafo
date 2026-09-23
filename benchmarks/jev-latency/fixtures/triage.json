@@ -1,0 +1,26 @@
+{
+  "name": "synthetic-fafo-issue-triage-v1",
+  "state": {
+    "report": "A FAFO learner reports that the issue triage agent saved a proposed issue after reading a test run. In the run log, case A shows checkout totals doubling when the cart has a coupon and the agent saved an issue titled Coupon duplicates checkout total. Case B shows a screenshot-only complaint about a blank dashboard, but the supplied trace has no dashboard request, stack trace, or reproduction. Case C shows the judge script marking an intentionally failing course exercise as a regression; the exercise is designed to fail until the learner completes it. Case D shows a refund request with a receipt and an explicit statement that no refund has yet been issued; the saved issue claims a refund was completed. Case E shows the issue triage agent assigning a payment failure to the authentication team despite gateway decline code 402. Case F shows a test that intermittently times out only on CI, with three timestamped CI failures and no local failure. Case G shows the agent suppressing a new account lockout issue as a duplicate of an older password reset issue, although the reported behavior and paths differ. Case H shows a saved issue with a precise file path and a failing assertion but no actual/expected values. Case I reports that a user can reach another tenant's issue through a direct URL, with a redacted HTTP trace and two tenant IDs. Case J reports a typo in the empty-state label with a screenshot and a straightforward expected copy. Case K records an API 429 after a burst of 80 concurrent requests but no rate-limit policy or expected threshold. Case L shows a worker job being retried twice and ultimately succeeding; the saved issue says all retries failed. Case M shows a migration with a reproducible duplicate-key error and a rollback instruction that is absent from the saved issue. Case N shows a search result that omits a recently created issue; the report supplies creation and query timestamps but no indexing SLA. Case O reports that a proposed issue includes a real customer email address in its public title, while the source has a safe redacted identifier. Case P shows two reports of the same coupon-total failure with matching stack traces and identical build ID; the agent saved two separate issues.",
+    "policy": "FAFO issue triage should save an issue only when evidence supports a concrete defect or actionable gap. Deliberately failing course exercises are expected behavior. A saved title and summary must not assert facts absent from the report. Security or cross-tenant exposure receives urgent escalation. Missing evidence should be marked for follow-up, not invented. Duplicate reports with the same behavior and build should be linked. An issue should name the observed behavior, expected behavior, and the strongest available evidence. Public issue text must omit personal data.",
+    "proposed_issues": "A: Coupon duplicates checkout total; B: Dashboard API consistently crashes; C: Judge is broken; D: Refund completed incorrectly; E: Authentication rejects valid payment; F: CI-only timeout; G: Duplicate of password reset; H: Assertion failure in src/triage.ts; I: Cross-tenant issue access; J: Empty-state copy typo; K: Rate limiter is broken; L: Worker retries always fail; M: Migration duplicate key; N: Search indexing broken; O: Customer email in title; P: Two coupon total issues."
+  },
+  "items": [
+    {"id":"A","signal":"coupon checkout total doubles with reproducible evidence","candidate":"Coupon duplicates checkout total"},
+    {"id":"B","signal":"dashboard screenshot lacks trace or reproduction","candidate":"Dashboard API consistently crashes"},
+    {"id":"C","signal":"intentional failing exercise is expected","candidate":"Judge is broken"},
+    {"id":"D","signal":"refund was requested but not issued","candidate":"Refund completed incorrectly"},
+    {"id":"E","signal":"payment gateway decline 402 routed to authentication","candidate":"Authentication rejects valid payment"},
+    {"id":"F","signal":"three timestamped CI-only timeouts","candidate":"CI-only timeout"},
+    {"id":"G","signal":"account lockout differs from password reset","candidate":"Duplicate of password reset"},
+    {"id":"H","signal":"path and assertion supplied, actual/expected absent","candidate":"Assertion failure in src/triage.ts"},
+    {"id":"I","signal":"cross-tenant access with redacted trace","candidate":"Cross-tenant issue access"},
+    {"id":"J","signal":"screenshot supports empty-state copy typo","candidate":"Empty-state copy typo"},
+    {"id":"K","signal":"429 after burst without policy threshold","candidate":"Rate limiter is broken"},
+    {"id":"L","signal":"worker retry succeeds on second retry","candidate":"Worker retries always fail"},
+    {"id":"M","signal":"migration duplicate-key error; rollback omitted","candidate":"Migration duplicate key"},
+    {"id":"N","signal":"search lag timestamps but no indexing SLA","candidate":"Search indexing broken"},
+    {"id":"O","signal":"public title contains customer email","candidate":"Customer email in title"},
+    {"id":"P","signal":"duplicate coupon reports same stack and build","candidate":"Two coupon total issues"}
+  ]
+}

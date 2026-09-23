@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1060" viewBox="0 0 1600 1060" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Jev routes: latency versus completion in this run</title>
+<desc id="chart-desc">Direct TypeSafe succeeded in all 1,000 calls at zero relative delay. OpenRouter succeeded in all 1,000 calls with median matched delays of 31 to 48 milliseconds. Vercel succeeded in 389 of 1,000 calls, with successful matched delays of 59 to 104 milliseconds under a reported 30-request-per-minute limit. Each gateway dot represents one workload; stars mark the mixed 16-question workload. The success rates do not estimate general service uptime.</desc>
+<defs><linearGradient id="neon" x1="0" x2="1"><stop stop-color="#22d3ee"/><stop offset="1" stop-color="#a3e635"/></linearGradient></defs>
+<rect width="1600" height="1060" fill="#03080c"/>
+<rect width="1600" height="7" fill="url(#neon)"/>
+<text x="92.0" y="86.0" fill="#22d3ee" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="24" font-weight="700" text-anchor="start" letter-spacing="4">JEV ROUTES</text>
+<text x="92.0" y="147.0" fill="#f8fafc" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="55" font-weight="700" text-anchor="start" >Latency vs completion</text>
+<text x="94.0" y="190.0" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="22" font-weight="400" text-anchor="start" >10 workloads  ·  100 repetitions each  ·  22 Sep 2026  ·  sequential requests</text>
+<line x1="92.0" y1="212.0" x2="1508.0" y2="212.0" stroke="#24343e" stroke-width="2" opacity="1"/>
+<text x="222.0" y="249.0" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="19" font-weight="700" text-anchor="start" letter-spacing="2">SUCCESSFUL REQUESTS IN THIS RUN</text>
+<line x1="222.0" y1="827.0" x2="1462.0" y2="827.0" stroke="#24343e" stroke-width="2" opacity="0.9"/>
+<text x="198.0" y="835.0" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="20" font-weight="400" text-anchor="end" >0%</text>
+<line x1="222.0" y1="690.8" x2="1462.0" y2="690.8" stroke="#24343e" stroke-width="1" opacity="0.65"/>
+<text x="198.0" y="698.8" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="20" font-weight="400" text-anchor="end" >25%</text>
+<line x1="222.0" y1="554.5" x2="1462.0" y2="554.5" stroke="#24343e" stroke-width="1" opacity="0.65"/>
+<text x="198.0" y="562.5" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="20" font-weight="400" text-anchor="end" >50%</text>
+<line x1="222.0" y1="418.2" x2="1462.0" y2="418.2" stroke="#24343e" stroke-width="1" opacity="0.65"/>
+<text x="198.0" y="426.2" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="20" font-weight="400" text-anchor="end" >75%</text>
+<line x1="222.0" y1="282.0" x2="1462.0" y2="282.0" stroke="#24343e" stroke-width="2" opacity="0.9"/>
+<text x="198.0" y="290.0" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="20" font-weight="400" text-anchor="end" >100%</text>
+<line x1="222.0" y1="282.0" x2="222.0" y2="827.0" stroke="#24343e" stroke-width="1" opacity="0.5"/>
+<text x="222.0" y="869.0" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="20" font-weight="400" text-anchor="middle" >0</text>
+<line x1="428.7" y1="282.0" x2="428.7" y2="827.0" stroke="#24343e" stroke-width="1" opacity="0.5"/>
+<text x="428.7" y="869.0" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="20" font-weight="400" text-anchor="middle" >20</text>
+<line x1="635.3" y1="282.0" x2="635.3" y2="827.0" stroke="#24343e" stroke-width="1" opacity="0.5"/>
+<text x="635.3" y="869.0" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="20" font-weight="400" text-anchor="middle" >40</text>
+<line x1="842.0" y1="282.0" x2="842.0" y2="827.0" stroke="#24343e" stroke-width="1" opacity="0.5"/>
+<text x="842.0" y="869.0" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="20" font-weight="400" text-anchor="middle" >60</text>
+<line x1="1048.7" y1="282.0" x2="1048.7" y2="827.0" stroke="#24343e" stroke-width="1" opacity="0.5"/>
+<text x="1048.7" y="869.0" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="20" font-weight="400" text-anchor="middle" >80</text>
+<line x1="1255.3" y1="282.0" x2="1255.3" y2="827.0" stroke="#24343e" stroke-width="1" opacity="0.5"/>
+<text x="1255.3" y="869.0" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="20" font-weight="400" text-anchor="middle" >100</text>
+<line x1="1462.0" y1="282.0" x2="1462.0" y2="827.0" stroke="#24343e" stroke-width="1" opacity="0.5"/>
+<text x="1462.0" y="869.0" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="20" font-weight="400" text-anchor="middle" >120</text>
+<text x="842.0" y="923.0" fill="#f8fafc" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="22" font-weight="700" text-anchor="middle" letter-spacing="1">MEDIAN EXTRA LATENCY VS DIRECT  ·  ms</text>
+<polygon points="222.0,265.0 239.0,282.0 222.0,299.0 205.0,282.0" fill="#22d3ee" stroke="#f8fafc" stroke-width="2" opacity="1"/>
+<g><title>Vercel, noul batch 1: +77.4 ms; 61% successful</title><rect x="1010.7" y="483.6" width="22" height="22" rx="2" fill="#f472b6" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>OpenRouter, noul batch 1: +48.3 ms; 100% successful</title><circle cx="721.3" cy="282.0" r="11" fill="#a78bfa" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>Vercel, noul batch 4: +69.4 ms; 37% successful</title><rect x="928.4" y="614.4" width="22" height="22" rx="2" fill="#f472b6" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>OpenRouter, noul batch 4: +46.4 ms; 100% successful</title><circle cx="701.6" cy="282.0" r="11" fill="#a78bfa" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>Vercel, noul batch 16: +80.4 ms; 38% successful</title><rect x="1042.1" y="608.9" width="22" height="22" rx="2" fill="#f472b6" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>OpenRouter, noul batch 16: +41.1 ms; 100% successful</title><circle cx="646.6" cy="282.0" r="11" fill="#a78bfa" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>Vercel, choice batch 1: +59.2 ms; 25% successful</title><rect x="823.2" y="679.8" width="22" height="22" rx="2" fill="#f472b6" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>OpenRouter, choice batch 1: +32.7 ms; 100% successful</title><circle cx="559.8" cy="282.0" r="11" fill="#a78bfa" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>Vercel, choice batch 4: +60.0 ms; 37% successful</title><rect x="831.3" y="614.4" width="22" height="22" rx="2" fill="#f472b6" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>OpenRouter, choice batch 4: +31.8 ms; 100% successful</title><circle cx="551.0" cy="282.0" r="11" fill="#a78bfa" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>Vercel, choice batch 16: +85.5 ms; 35% successful</title><rect x="1094.2" y="625.2" width="22" height="22" rx="2" fill="#f472b6" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>OpenRouter, choice batch 16: +30.7 ms; 100% successful</title><circle cx="539.5" cy="282.0" r="11" fill="#a78bfa" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>Vercel, score batch 1: +89.2 ms; 40% successful</title><rect x="1132.2" y="598.0" width="22" height="22" rx="2" fill="#f472b6" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>OpenRouter, score batch 1: +33.1 ms; 100% successful</title><circle cx="564.1" cy="282.0" r="11" fill="#a78bfa" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>Vercel, score batch 4: +80.7 ms; 41% successful</title><rect x="1045.1" y="592.5" width="22" height="22" rx="2" fill="#f472b6" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>OpenRouter, score batch 4: +33.5 ms; 100% successful</title><circle cx="568.0" cy="282.0" r="11" fill="#a78bfa" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>Vercel, score batch 16: +73.9 ms; 40% successful</title><rect x="974.4" y="598.0" width="22" height="22" rx="2" fill="#f472b6" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>OpenRouter, score batch 16: +35.7 ms; 100% successful</title><circle cx="590.5" cy="282.0" r="11" fill="#a78bfa" stroke="#03080c" stroke-width="2" opacity="0.9"/></g>
+<g><title>Vercel, mixed batch 16: +104.3 ms; 35% successful</title><polygon points="1299.7,617.2 1305.0,629.0 1317.7,630.4 1308.2,639.0 1310.8,651.6 1299.7,645.2 1288.5,651.6 1291.1,639.0 1281.6,630.4 1294.4,629.0" fill="#f472b6" stroke="#f8fafc" stroke-width="2.5" opacity="1"/></g>
+<g><title>OpenRouter, mixed batch 16: +34.7 ms; 100% successful</title><polygon points="580.7,263.0 586.0,274.7 598.7,276.1 589.2,284.8 591.8,297.4 580.7,291.0 569.5,297.4 572.1,284.8 562.6,276.1 575.4,274.7" fill="#a78bfa" stroke="#f8fafc" stroke-width="2.5" opacity="1"/></g>
+<text x="252.0" y="321.0" fill="#22d3ee" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="21" font-weight="700" text-anchor="start" >DIRECT  ·  1000/1000</text>
+<text x="743.0" y="320.0" fill="#a78bfa" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="21" font-weight="700" text-anchor="start" >OPENROUTER  ·  1000/1000</text>
+<text x="1000.0" y="422.0" fill="#f472b6" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="21" font-weight="700" text-anchor="start" >VERCEL  ·  389/1000</text>
+<line x1="593.7" y1="300.0" x2="705.0" y2="353.0" stroke="#a78bfa" stroke-width="2" opacity="0.85"/>
+<text x="716.0" y="352.0" fill="#f8fafc" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="19" font-weight="700" text-anchor="start" >MIXED · 16 QUESTIONS</text>
+<text x="716.0" y="383.0" fill="#a78bfa" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="19" font-weight="400" text-anchor="start" >OpenRouter  +35 ms  ·  100% success</text>
+<line x1="1289.7" y1="654.2" x2="1098.0" y2="724.0" stroke="#f472b6" stroke-width="2" opacity="0.85"/>
+<text x="1087.0" y="750.0" fill="#f8fafc" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="19" font-weight="700" text-anchor="end" >MIXED · 16 QUESTIONS</text>
+<text x="1087.0" y="781.0" fill="#f472b6" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="19" font-weight="400" text-anchor="end" >Vercel  +104 ms  ·  35% success</text>
+<line x1="92.0" y1="950.0" x2="1508.0" y2="950.0" stroke="#24343e" stroke-width="2" opacity="1"/>
+<text x="94.0" y="984.0" fill="#f8fafc" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="18" font-weight="400" text-anchor="start" >Gateway dots = one workload; direct = shared baseline. X = matched delay; Y = success rate.</text>
+<text x="94.0" y="1015.0" fill="#9eb4c0" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="18" font-weight="400" text-anchor="start" >Vercel: 593 limit 429s + 18 other DNFs. This is not an uptime estimate or pure gateway overhead.</text>
+</svg>

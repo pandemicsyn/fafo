@@ -1,0 +1,37 @@
+{
+  "config": {
+    "fixture": "fixtures/triage.json",
+    "fixture_hash": "86aa527b31bd68763dd1d3f9c7a2023edbf6797068b878d4fb963d0065edd1e3",
+    "batches": [
+      1,
+      4,
+      16
+    ],
+    "primitives": [
+      "noul",
+      "choice",
+      "score",
+      "mixed"
+    ],
+    "sample_tag": "blog-20260922",
+    "reps": 100,
+    "seed": 20260922,
+    "transition_pause_ms": 250,
+    "timeout_sec": 60,
+    "models": {
+      "openrouter": "typesafe/jev-1.13",
+      "typesafe": "jev-latest",
+      "vercel": "typesafe-ai/jev"
+    },
+    "urls": {
+      "openrouter": "https://openrouter.ai/api/alpha/decisions",
+      "typesafe": "https://api.typesafe.ai/v1/systemone",
+      "vercel": "https://ai-gateway.vercel.sh/typesafe/v1/systemone"
+    }
+  },
+  "schedule_hash": "30ae54c76c547ab97dbf3e7774852f5996050ed7d37749fc8e5c62324296a9b5",
+  "created": "2026-09-22T21:37:40-05:00",
+  "hostname": "Mac.localdomain",
+  "go_version": "go1.27.1",
+  "location": "Local"
+}
