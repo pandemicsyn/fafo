@@ -42,7 +42,7 @@
     "oxlint-tsgolint": "7.0.2001",
     "tsx": "4.23.13",
     "typescript": "5.9.3",
-    "vite": "8.2.2",
+    "vite": "8.3.5",
     "vitest": "4.1.11",
     "vitest-evals": "0.16.1"
   },
