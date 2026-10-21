@@ -30,7 +30,7 @@
     "@earendil-works/pi-ai": "0.83.0",
     "@flue/runtime": "2.0.4",
     "@flue/sdk": "2.0.4",
-    "hono": "4.13.7",
+    "hono": "4.13.13",
     "valibot": "1.5.0"
   },
   "devDependencies": {
