@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@flue/vite": "2.0.4",
-    "@hono/node-server": "2.1.1",
+    "@hono/node-server": "2.1.6",
     "@types/node": "22.20.2",
     "oxfmt": "0.67.0",
     "oxlint": "1.82.0",
